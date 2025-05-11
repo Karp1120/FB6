@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+    background: #f0f0f0;
+    color: #000;
+    margin: 2rem;
+  }
+  
+  .dark {
+    background: #1a1a1a;
+    color: #eee;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    background: inherit;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  button {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  pre {
+    background: #e0e0e0;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  
+  .dark pre {
+    background: #333;
+  }
+  

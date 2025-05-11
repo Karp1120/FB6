@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to your Profile</h1>
+
+    <div class="theme-switch">
+      <label>
+        <input type="checkbox" id="themeToggle">
+        Dark Theme
+      </label>
+    </div>
+
+    <button id="loadData">🔄 Обновить данные</button>
+    <pre id="dataOutput">Здесь будут данные...</pre>
+
+    <button id="logoutBtn">🚪 Выйти</button>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+      themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener('change', () => {
+      if (themeToggle.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    
+    document.getElementById('loadData').addEventListener('click', async () => {
+      const res = await fetch('/data', {
+        credentials: 'include' 
+      });
+      if (res.status === 401) return location.href = '/';
+      const json = await res.json();
+      document.getElementById('dataOutput').textContent = JSON.stringify(json, null, 2);
+    });
+
+    
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await fetch('/logout', {
+        method: 'POST',
+        credentials: 'include' 
+      });
+      location.href = '/';
+    });
+
+    
+    document.getElementById('loadData').click();
+  </script>
+</body>
+</html>
