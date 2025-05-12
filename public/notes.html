@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Заметки</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="notes.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Мои заметки</h1>
+
+    <textarea id="noteInput" placeholder="Введите заметку..."></textarea>
+    <button id="addNote">Добавить</button>
+
+    <h2>Список заметок:</h2>
+    <ul id="noteList"></ul>
+
+    <p id="offlineStatus" style="color: red; display: none;">Офлайн-режим</p>
+    <a href="profile.html">← Назад</a>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log('✅ Service Worker зарегистрирован');
+      });
+    }
+  </script>
+</body>
+</html>

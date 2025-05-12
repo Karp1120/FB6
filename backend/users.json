@@ -4,5 +4,17 @@
   },
   "nissafre": {
     "password": "$2b$10$cqWalJwoPvfEwKUAhY6T4eQAP/f.u5Wl5ZnMJQajXF7bDcXIGKirS"
+  },
+  "nissafr": {
+    "password": "$2b$10$RE3irlC5ldXrVoXSo2nXhucEpcUPliRCpMYudsJ/jhKxDowDbATFG"
+  },
+  "nissaf": {
+    "password": "$2b$10$GihP3NzsTe0kUcxRZ7xtUe4ROrcMF1W2NbNwuDXQSfb7k.n8b741G"
+  },
+  "niss": {
+    "password": "$2b$10$jHgP1ir66T3RJ56At4b6E.etBNvothtVZ5/yhBTijW3MCtQaasmju"
+  },
+  "ni": {
+    "password": "$2b$10$4c7oa0ZYe3dJzNsaalqsRefA3eJHJe86IBNalmUsExT7Gq5xV8NX."
   }
 }

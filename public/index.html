@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <title>Login / Register</title>
@@ -28,6 +28,7 @@
     const message = document.getElementById('message');
     let mode = 'login';
 
+    // переключение между login и register
     document.querySelectorAll('input[name="mode"]').forEach(r => {
       r.addEventListener('change', () => {
         mode = r.value;
@@ -35,25 +36,28 @@
       });
     });
 
+    // обработка отправки формы
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value;
 
       const res = await fetch(`/${mode}`, {
-         method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          credentials: 'include', 
-          body: JSON.stringify({ username, password })
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username, password })
       });
-
 
       const data = await res.json();
 
+      // 🔍 консоль для отладки
+      console.log('Ответ сервера:', res.status, data);
+
       if (res.ok) {
-        location.href = '/profile';
+        location.href = '/profile.html';
       } else {
-        message.textContent = data.error || 'Something went wrong';
+        message.textContent = data.error || 'Что-то пошло не так';
         message.style.color = 'red';
       }
     });
